@@ -37,7 +37,7 @@ public class StepDefinitions {
 
     @Then("the receipt looks like")
     public void the_receipt_looks_like(String expectedReceipt) {
-        FlowaPowaApp app = new FlowaPowaApp();
+        FlowaPowaApp app = new FlowaPowaApp(crafting);
         String receipt = app.makeBouquet(recipe);
 
         assertEquals(expectedReceipt, receipt);
