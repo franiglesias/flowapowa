@@ -1,7 +1,7 @@
 package flowapowa.forUsingApplication;
 
 public class FlowaPowaApp {
-    private Integer crafting;
+    private final Integer crafting;
 
     public FlowaPowaApp(Integer crafting) {
 
