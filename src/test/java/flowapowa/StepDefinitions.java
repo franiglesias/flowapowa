@@ -1,31 +1,46 @@
 package flowapowa;
 
+import flowapowa.application.Provider;
+import flowapowa.forGettingPrices.DeprecatedProvider;
+import flowapowa.forUsingApplication.FlowaPowaApp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class StepDefinitions {
-    @Given("{string} costs {double} {string}")
-    public void costs(String string, Double double1, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    private Provider provider;
+    private Integer crafting;
+    private String recipe;
+
+    public StepDefinitions() {
+        this.provider = new DeprecatedProvider();
     }
 
-    @Given("crafting costs {int}%")
-    public void crafting_costs(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("{string} costs {double}")
+    public void costs(String product, Double unitaryPrice) {
+        provider = new DeprecatedProvider();
+        provider.add(product, unitaryPrice);
+    }
+
+    @Given("crafting adds {int}%")
+    public void crafting_adds(Integer percent) {
+        crafting = percent;
     }
 
     @When("I request a bouquet with {int} {string}")
-    public void i_request_a_bouquet_with(Integer int1, String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void i_request_a_bouquet_with(Integer quantity, String product) {
+        recipe = String.format("%s:%s;\n", product, quantity);
     }
 
-    @Then("the total price is {double} {string}")
-    public void the_total_price_is(Double double1, String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("the receipt looks like")
+    public void the_receipt_looks_like(String expectedReceipt) {
+        FlowaPowaApp app = new FlowaPowaApp();
+        String receipt = app.makeBouquet(recipe);
+
+        assertEquals(expectedReceipt, receipt);
     }
+
 }
