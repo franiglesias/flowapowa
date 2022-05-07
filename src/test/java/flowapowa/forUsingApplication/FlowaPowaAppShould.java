@@ -3,7 +3,6 @@ package flowapowa.forUsingApplication;
 import flowapowa.application.Bouquet;
 import flowapowa.application.BuildBouquet;
 import flowapowa.application.ReceiptPrinter;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,20 +18,16 @@ class FlowaPowaAppShould {
     @Mock
     ReceiptPrinter receiptPrinter;
 
-    @BeforeEach
-    void setUp() {
-    }
-
     @Test
     void MakeASimpleBouquetWitUniqueFlowerNoCraftingCosts() {
+        FlowaPowaApp.inject(buildBouquet, receiptPrinter);
+
         Bouquet bouquet = new Bouquet();
+
         when(buildBouquet.withRecipe("rose:12;", 0)).thenReturn(bouquet);
 
-        String[] args = new String[]{"rose:12;", "0"};
+        assertEquals(0, (Integer) FlowaPowaApp.main(new String[]{"rose:12;", "0"}));
 
-        FlowaPowaApp.inject(buildBouquet, receiptPrinter);
-        Integer exitCode = FlowaPowaApp.main(args);
-        assertEquals(0, exitCode);
         verify(receiptPrinter, times(1)).print(bouquet);
     }
 }
