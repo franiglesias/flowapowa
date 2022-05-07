@@ -1,7 +1,10 @@
 package flowapowa;
 
+import flowapowa.application.BuildBouquet;
 import flowapowa.application.Provider;
+import flowapowa.application.ReceiptPrinter;
 import flowapowa.forGettingPrices.DeprecatedProvider;
+import flowapowa.forPrintingReceipts.ConsoleReceiptPrinter;
 import flowapowa.forUsingApplication.FlowaPowaApp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -37,10 +40,12 @@ public class StepDefinitions {
 
     @Then("the receipt looks like")
     public void the_receipt_looks_like(String expectedReceipt) {
-        FlowaPowaApp app = new FlowaPowaApp(crafting);
-        String receipt = app.makeBouquet(recipe);
-
-        assertEquals(expectedReceipt, receipt);
+        BuildBouquet buildBouquet = new BuildBouquet();
+        ReceiptPrinter receiptPrinter = new ConsoleReceiptPrinter();
+        FlowaPowaApp.inject(buildBouquet, receiptPrinter);
+        String[] args = new String[]{recipe, String.valueOf(crafting)};
+        FlowaPowaApp.main(args);
+        assertEquals(expectedReceipt, receiptPrinter.output());
     }
 
 }
