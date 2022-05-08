@@ -1,8 +1,6 @@
 package flowapowa;
 
-import flowapowa.application.BuildBouquet;
-import flowapowa.application.Provider;
-import flowapowa.application.ReceiptPrinter;
+import flowapowa.application.*;
 import flowapowa.forGettingPrices.DeprecatedProvider;
 import flowapowa.forPrintingReceipts.ConsoleReceiptPrinter;
 import flowapowa.forUsingApplication.FlowaPowaApp;
@@ -40,11 +38,13 @@ public class StepDefinitions {
 
     @Then("the receipt looks like")
     public void the_receipt_looks_like(String expectedReceipt) {
-        BuildBouquet buildBouquet = new BuildBouquet();
+        BuildBouquet buildBouquet = new BuildBouquet(
+                new RecipeFactory(),
+                new BouquetBuilder()
+        );
         ReceiptPrinter receiptPrinter = new ConsoleReceiptPrinter();
         FlowaPowaApp.inject(buildBouquet, receiptPrinter);
-        String[] args = new String[]{recipe, String.valueOf(crafting)};
-        FlowaPowaApp.main(args);
+        FlowaPowaApp.main(new String[]{recipe, String.valueOf(crafting)});
         assertEquals(expectedReceipt, receiptPrinter.output());
     }
 
