@@ -25,4 +25,19 @@ public class Recipe implements Iterable<Recipe.Element> {
 
     public record Element(String element, int quantity) {
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Recipe elements1 = (Recipe) o;
+
+        return elements.equals(elements1.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        return elements.hashCode();
+    }
 }

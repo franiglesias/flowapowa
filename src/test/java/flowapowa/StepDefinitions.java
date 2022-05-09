@@ -33,7 +33,7 @@ public class StepDefinitions {
 
     @When("I request a bouquet with {int} {string}")
     public void i_request_a_bouquet_with(Integer quantity, String product) {
-        recipe = String.format("%s:%s;\n", product, quantity);
+        recipe = String.format("%s:%s;", product, quantity);
     }
 
     @Then("the receipt looks like")
