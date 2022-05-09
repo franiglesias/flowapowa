@@ -1,7 +1,20 @@
 package flowapowa.application;
 
 public class BouquetBuilder {
+    private final Provider priceProvider;
+
+    public BouquetBuilder(Provider priceProvider) {
+        this.priceProvider = priceProvider;
+    }
+
     public Bouquet withRecipe(Recipe recipe, Integer crafting) {
-        throw new UnsupportedOperationException("Please, implement BouquetBuilder.withRecipe");
+        Bouquet bouquet = new Bouquet(crafting);
+
+        for (Recipe.Element element :
+                recipe) {
+            bouquet.add(element, priceProvider);
+        }
+
+        return bouquet;
     }
 }

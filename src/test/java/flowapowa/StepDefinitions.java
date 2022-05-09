@@ -40,11 +40,13 @@ public class StepDefinitions {
     public void the_receipt_looks_like(String expectedReceipt) {
         BuildBouquet buildBouquet = new BuildBouquet(
                 new RecipeFactory(),
-                new BouquetBuilder()
+                new BouquetBuilder(provider)
         );
         ReceiptPrinter receiptPrinter = new ConsoleReceiptPrinter();
+
         FlowaPowaApp.inject(buildBouquet, receiptPrinter);
         FlowaPowaApp.main(new String[]{recipe, String.valueOf(crafting)});
+
         assertEquals(expectedReceipt, receiptPrinter.output());
     }
 

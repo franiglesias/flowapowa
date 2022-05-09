@@ -10,20 +10,20 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class BuildBouquetShould {
-    @Mock
     RecipeFactory recipeFactory;
-    @Mock
     BouquetBuilder bouquetBuilder;
+    @Mock
+    private Provider priceProvider;
 
     @Test
 
     void buildABouquetFromARecipe() {
-        Recipe recipe = new Recipe();
-        Bouquet expected = new Bouquet("rose", 1.5, 12);
+        Bouquet expected = new Bouquet(0);
+        when(priceProvider.getPrice("rose")).thenReturn(1.5);
+        expected.add(new Recipe.Element("rose", 12), priceProvider);
 
-        when(recipeFactory.makeFrom("rose:12;")).thenReturn(recipe);
-        when(bouquetBuilder.withRecipe(recipe, 0)).thenReturn(expected);
-
+        recipeFactory = new RecipeFactory();
+        bouquetBuilder = new BouquetBuilder(priceProvider);
         BuildBouquet buildBouquet = new BuildBouquet(
                 recipeFactory,
                 bouquetBuilder
@@ -31,6 +31,6 @@ class BuildBouquetShould {
 
         Bouquet bouquet = buildBouquet.withRecipe("rose:12;", 0);
 
-        assertEquals(expected, bouquet);
+        assertEquals(expected.receipt(), bouquet.receipt());
     }
 }

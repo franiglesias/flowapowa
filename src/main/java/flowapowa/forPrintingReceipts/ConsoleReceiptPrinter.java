@@ -4,13 +4,14 @@ import flowapowa.application.Bouquet;
 import flowapowa.application.ReceiptPrinter;
 
 public class ConsoleReceiptPrinter implements ReceiptPrinter {
+    String output;
     @Override
     public void print(Bouquet bouquet) {
-        throw new UnsupportedOperationException("Implement ConsoleReceiptPrinter.print");
+        output = bouquet.receipt();
     }
 
     @Override
     public String output() {
-        throw new UnsupportedOperationException("Implement ConsoleReceiptPrinter.output");
+        return output;
     }
 }
