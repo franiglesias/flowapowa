@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StepDefinitions {
 
-    private Provider provider;
+    private DeprecatedProvider provider;
     private Integer crafting;
     private String recipe;
 

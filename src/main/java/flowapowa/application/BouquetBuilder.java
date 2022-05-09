@@ -1,9 +1,11 @@
 package flowapowa.application;
 
-public class BouquetBuilder {
-    private final Provider priceProvider;
+import flowapowa.forGettingPrices.DeprecatedProvider;
 
-    public BouquetBuilder(Provider priceProvider) {
+public class BouquetBuilder {
+    private final DeprecatedProvider priceProvider;
+
+    public BouquetBuilder(DeprecatedProvider priceProvider) {
         this.priceProvider = priceProvider;
     }
 

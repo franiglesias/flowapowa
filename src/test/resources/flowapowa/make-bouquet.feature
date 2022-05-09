@@ -5,8 +5,9 @@ Feature: Make a bouquet
 
   Guidelines:
     Currency euros. We don't use currency for simplicity.
-    Interface of FlowaPowa::makeBouquet accepts recipe strings like "rose:12;daisy:15;foliage:1;"
+    Interface of FlowaPowa::main accepts recipe strings like "rose:12;daisy:15;foliage:1;"
     Flower names in singular
+    Sort of Hexagonal Architecture
 
   Scenario: Make a simple bouquet
     Given "rose" costs 1.50

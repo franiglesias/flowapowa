@@ -1,11 +1,11 @@
 package flowapowa.forGettingPrices;
 
-import flowapowa.application.Provider;
+import flowapowa.application.PriceProvider;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DeprecatedProvider implements Provider {
+public class DeprecatedProvider implements PriceProvider {
     private final Map<String, Double> products;
 
     public DeprecatedProvider() {

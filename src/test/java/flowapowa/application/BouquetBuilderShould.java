@@ -1,5 +1,6 @@
 package flowapowa.application;
 
+import flowapowa.forGettingPrices.DeprecatedProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -12,7 +13,7 @@ import static org.mockito.Mockito.when;
 class BouquetBuilderShould {
 
     @Mock
-    private Provider priceProvider;
+    private DeprecatedProvider priceProvider;
 
     @Test
     void createABouquetUsingARecipe() {
