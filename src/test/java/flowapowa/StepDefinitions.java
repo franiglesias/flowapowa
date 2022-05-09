@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StepDefinitions {
 
-    private DeprecatedProvider provider;
+    private final DeprecatedProvider provider;
     private Integer crafting;
     private String recipe;
 
@@ -22,7 +22,6 @@ public class StepDefinitions {
 
     @Given("{string} costs {double}")
     public void costs(String product, Double unitaryPrice) {
-        provider = new DeprecatedProvider();
         provider.add(product, unitaryPrice);
     }
 
@@ -50,4 +49,8 @@ public class StepDefinitions {
         assertEquals(expectedReceipt, receiptPrinter.output());
     }
 
+    @When("I request a bouquet with {int} {string} and {int} {string}")
+    public void iRequestABouquetWithAnd(int qty1, String product1, int qty2, String product2) {
+        recipe = String.format("%s:%s;", product1, qty1) + String.format("%s:%s;", product2, qty2);
+    }
 }
