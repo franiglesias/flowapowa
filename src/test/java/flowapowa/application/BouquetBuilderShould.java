@@ -27,10 +27,10 @@ class BouquetBuilderShould {
         Bouquet bouquet = builder.withRecipe(recipe, 35);
 
         String expected = """
-                Rose        12   1,50   18,00
-                Crafting                 6,30
+                Rose        12   1.50   18.00
+                Crafting                 6.30
                 -----------------------------
-                Total                   24,30
+                Total                   24.30
                 """;
 
         assertEquals(expected, bouquet.receipt());

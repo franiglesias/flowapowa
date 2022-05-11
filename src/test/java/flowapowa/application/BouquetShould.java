@@ -23,10 +23,10 @@ class BouquetShould {
         bouquet.add(new Recipe.Element("flower", 12), priceProvider);
 
         String expected = """
-                Flower      12   1,50   18,00
-                Crafting                 6,30
+                Flower      12   1.50   18.00
+                Crafting                 6.30
                 -----------------------------
-                Total                   24,30
+                Total                   24.30
                 """;
 
         assertEquals(expected, bouquet.receipt());
