@@ -34,13 +34,12 @@ public class StepDefinitions {
 
     @When("I request a bouquet with {int} {string}")
     public void i_request_a_bouquet_with(Integer quantity, String product) {
-        recipe = String.format(Locale.ROOT, "%s:%s;", product, quantity);
+        recipe = new RawRecipe(quantity, product).toString();
     }
 
     @Then("the receipt looks like")
     public void the_receipt_looks_like(String expectedReceipt) {
         BuildBouquet buildBouquet = new BuildBouquet(
-                new RecipeFactory(),
                 new BouquetBuilder(provider)
         );
         ReceiptPrinter receiptPrinter = new ConsoleReceiptPrinter();
@@ -53,6 +52,13 @@ public class StepDefinitions {
 
     @When("I request a bouquet with {int} {string} and {int} {string}")
     public void iRequestABouquetWithAnd(int qty1, String product1, int qty2, String product2) {
-        recipe = String.format(Locale.ROOT, "%s:%s;", product1, qty1) + String.format(Locale.ROOT, "%s:%s;", product2, qty2);
+        recipe = new RawRecipe(qty1, product1) + new RawRecipe(qty2, product2).toString();
+    }
+
+    public record RawRecipe (Integer quantity, String product){
+
+        public String toString() {
+            return String.format(Locale.ROOT, "%s:%s;", product, quantity);
+        }
     }
 }

@@ -1,20 +1,15 @@
 package flowapowa.application;
 
 public class BuildBouquet {
-    private RecipeFactory recipeFactory;
-    private BouquetBuilder bouquetBuilder;
+    private final BouquetBuilder bouquetBuilder;
 
-
-    public BuildBouquet(RecipeFactory recipeFactory, BouquetBuilder bouquetBuilder) {
-        this.recipeFactory = recipeFactory;
+    public BuildBouquet(BouquetBuilder bouquetBuilder) {
         this.bouquetBuilder = bouquetBuilder;
     }
 
     public Bouquet withRecipe(String rawRecipe, Integer crafting) {
-        Recipe recipe = recipeFactory.makeFrom(rawRecipe);
+        Recipe recipe = new Recipe(rawRecipe);
 
-        Bouquet bouquet = bouquetBuilder.withRecipe(recipe, crafting);
-
-        return bouquet;
+        return bouquetBuilder.withRecipe(recipe, crafting);
     }
 }

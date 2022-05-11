@@ -12,6 +12,17 @@ public class Recipe implements Iterable<Recipe.Element> {
         this.elements = new ArrayList<>();
     }
 
+    public Recipe(String rawRecipe) {
+        this.elements = new ArrayList<>();
+        String[] lines = rawRecipe.split(";");
+
+        for (String line :
+                lines) {
+            String[] parts = line.split(":");
+            this.add(parts[0], Integer.parseInt(parts[1]));
+        }
+    }
+
     public void add(String flower, int quantity) {
         Element element = new Element(flower, quantity);
 

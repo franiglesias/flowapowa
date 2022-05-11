@@ -16,4 +16,14 @@ class RecipeShould {
             assertEquals(expected, element);
         }
     }
+
+    @Test
+    void createARecipeWithOneElement() {
+
+        Recipe expected = new Recipe();
+        expected.add("flower", 5);
+
+        Recipe recipe = new Recipe("flower:5;");
+        assertEquals(expected, recipe);
+    }
 }

@@ -11,7 +11,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class BuildBouquetShould {
-    RecipeFactory recipeFactory;
     BouquetBuilder bouquetBuilder;
     @Mock
     private DeprecatedProvider priceProvider;
@@ -23,10 +22,8 @@ class BuildBouquetShould {
         when(priceProvider.getPrice("rose")).thenReturn(1.5);
         expected.add(new Recipe.Element("rose", 12), priceProvider);
 
-        recipeFactory = new RecipeFactory();
         bouquetBuilder = new BouquetBuilder(priceProvider);
         BuildBouquet buildBouquet = new BuildBouquet(
-                recipeFactory,
                 bouquetBuilder
         );
 

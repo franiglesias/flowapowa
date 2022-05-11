@@ -17,13 +17,11 @@ class BouquetBuilderShould {
 
     @Test
     void createABouquetUsingARecipe() {
-        RecipeFactory factory = new RecipeFactory();
+        Recipe recipe = new Recipe("rose:12;");
 
-        Recipe recipe = factory.makeFrom("rose:12;");
         when(priceProvider.getPrice("rose")).thenReturn(1.50);
 
         BouquetBuilder builder = new BouquetBuilder(priceProvider);
-
         Bouquet bouquet = builder.withRecipe(recipe, 35);
 
         String expected = """
@@ -35,4 +33,5 @@ class BouquetBuilderShould {
 
         assertEquals(expected, bouquet.receipt());
     }
+
 }
