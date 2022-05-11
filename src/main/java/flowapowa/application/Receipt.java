@@ -2,6 +2,7 @@ package flowapowa.application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 class Receipt {
@@ -62,7 +63,7 @@ class Receipt {
 
         @Override
         public String toString() {
-            return String.format("%-8s %5d %6.2f %7.2f\n", element(), quantity, price, amount());
+            return String.format(Locale.ROOT,"%-8s %5d %6.2f %7.2f\n", element(), quantity, price, amount());
         }
 
         private String element() {
@@ -88,7 +89,7 @@ class Receipt {
 
         @Override
         public String toString() {
-            return String.format("%-20s %8.2f\n", element, amount);
+            return String.format(Locale.ROOT, "%-20s %8.2f\n", element, amount);
         }
 
         @Override

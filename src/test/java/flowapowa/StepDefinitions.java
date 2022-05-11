@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StepDefinitions {
@@ -32,7 +34,7 @@ public class StepDefinitions {
 
     @When("I request a bouquet with {int} {string}")
     public void i_request_a_bouquet_with(Integer quantity, String product) {
-        recipe = String.format("%s:%s;", product, quantity);
+        recipe = String.format(Locale.ROOT, "%s:%s;", product, quantity);
     }
 
     @Then("the receipt looks like")
@@ -51,6 +53,6 @@ public class StepDefinitions {
 
     @When("I request a bouquet with {int} {string} and {int} {string}")
     public void iRequestABouquetWithAnd(int qty1, String product1, int qty2, String product2) {
-        recipe = String.format("%s:%s;", product1, qty1) + String.format("%s:%s;", product2, qty2);
+        recipe = String.format(Locale.ROOT, "%s:%s;", product1, qty1) + String.format(Locale.ROOT, "%s:%s;", product2, qty2);
     }
 }

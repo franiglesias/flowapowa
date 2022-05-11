@@ -15,10 +15,10 @@ Feature: Make a bouquet
     When I request a bouquet with 12 "rose"
     Then the receipt looks like
     """
-    Rose        12   1,50   18,00
-    Crafting                 6,30
+    Rose        12   1.50   18.00
+    Crafting                 6.30
     -----------------------------
-    Total                   24,30
+    Total                   24.30
 
     """
 
@@ -29,10 +29,10 @@ Feature: Make a bouquet
     When I request a bouquet with 12 "rose" and 16 "daisy"
     Then the receipt looks like
     """
-    Rose        12   1,50   18,00
-    Daisy       16   0,80   12,80
-    Crafting                10,78
+    Rose        12   1.50   18.00
+    Daisy       16   0.80   12.80
+    Crafting                10.78
     -----------------------------
-    Total                   41,58
+    Total                   41.58
 
     """

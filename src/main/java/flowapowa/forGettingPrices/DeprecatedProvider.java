@@ -5,6 +5,7 @@ import flowapowa.application.PriceProvider;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public class DeprecatedProvider implements PriceProvider {
     private final Map<String, Double> products;
 
