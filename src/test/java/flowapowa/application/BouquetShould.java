@@ -16,11 +16,10 @@ class BouquetShould {
 
     @Test
     void produceAReceipt() {
-        Bouquet bouquet = new Bouquet(35);
-
         when(priceProvider.getPrice("flower")).thenReturn(1.50);
 
-        bouquet.add(new Recipe.Element("flower", 12), priceProvider);
+        Bouquet bouquet = new Bouquet(35);
+        bouquet.add("flower", 12, priceProvider);
 
         String expected = """
                 Flower      12   1.50   18.00

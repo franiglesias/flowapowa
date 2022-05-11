@@ -26,6 +26,14 @@ public class Bouquet {
         products.add(product);
     }
 
+    public void add(String productName, Integer quantity, DeprecatedProvider priceProvider ) {
+        double price = priceProvider.getPrice(productName);
+
+        Product product = new Product(productName, quantity, price);
+
+        products.add(product);
+    }
+
     public String receipt() {
         for (Product product :
                 products) {

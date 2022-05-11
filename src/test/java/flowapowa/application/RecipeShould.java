@@ -18,7 +18,7 @@ class RecipeShould {
     }
 
     @Test
-    void createARecipeWithOneElement() {
+    void buildFromRawRecipe() {
 
         Recipe expected = new Recipe();
         expected.add("flower", 5);

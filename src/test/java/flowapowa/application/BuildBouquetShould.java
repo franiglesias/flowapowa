@@ -23,9 +23,7 @@ class BuildBouquetShould {
         expected.add(new Recipe.Element("rose", 12), priceProvider);
 
         bouquetBuilder = new BouquetBuilder(priceProvider);
-        BuildBouquet buildBouquet = new BuildBouquet(
-                bouquetBuilder
-        );
+        BuildBouquet buildBouquet = new BuildBouquet(bouquetBuilder);
 
         Bouquet bouquet = buildBouquet.withRecipe("rose:12;", 0);
 
