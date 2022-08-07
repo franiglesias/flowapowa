@@ -1,6 +1,5 @@
 package flowapowa.forGettingPrices;
 
-import flowapowa.application.PriceProvider;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeprecatedProviderShould {
     @Test
     void AllowAddingPricesOfProducts() {
-        PriceProvider provider = new DeprecatedProvider();
+        DeprecatedProvider provider = new DeprecatedProvider();
 
         provider.add("rose", 1.50);
 

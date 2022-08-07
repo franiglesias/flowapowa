@@ -1,6 +1,6 @@
 # FlowaPowa
 
-This is an exercise to practice branching by abstraction and feature flags.
+This is an exercise to practice **branching by abstraction** and feature flags.
 
 ## The problem
 

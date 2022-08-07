@@ -1,4 +1,4 @@
-package flowapowa.vendor;
+package flowapowa.library;
 
 import org.junit.jupiter.api.Test;
 
