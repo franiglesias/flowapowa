@@ -3,8 +3,9 @@ package flowapowa;
 import flowapowa.application.BouquetBuilder;
 import flowapowa.application.BuildBouquet;
 import flowapowa.application.ReceiptPrinter;
-import flowapowa.forGettingPrices.DeprecatedProvider;
+import flowapowa.forGettingPrices.NonDeprecatedProvider;
 import flowapowa.forGettingPrices.Provider;
+import flowapowa.forGettingPrices.ProviderFactory;
 import flowapowa.forPrintingReceipts.ConsoleReceiptPrinter;
 import flowapowa.forUsingApplication.FlowaPowaApp;
 import io.cucumber.java.en.Given;
@@ -22,7 +23,7 @@ public class StepDefinitions {
     private String recipe;
 
     public StepDefinitions() {
-        this.provider = new DeprecatedProvider();
+        this.provider = ProviderFactory.getProvider(false);
     } // TODO add fla
 
     @Given("{string} costs {double}")
