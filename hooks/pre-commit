@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo "Pre-commit hook. Verifying that your changes don't break things."
+echo "================================================================"
+echo
+
+CWD=`pwd`
+
+MAIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+BASE=${MAIN_DIR##*/}
+
+while [ $BASE != "flowapowa"  ]; do
+  cd $MAIN_DIR/../
+  MAIN_DIR=`pwd`
+  BASE=${MAIN_DIR##*/}
+done
+
+mvn clean test > /dev/null
+
+if [[ "$?" -ne 0 ]]; then
+    echo "KO. Some tests are failing. We want tests passing before commit."
+else
+    echo "OK. Congratulations. You can push this commit. TBD for the win!"
+fi
+
+cd $CWD
