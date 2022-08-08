@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DeprecatedProviderShould {
     @Test
     void AllowAddingPricesOfProducts() {
-        Provider provider = new DeprecatedProvider();
+        Provider provider = ProviderFactory.getProvider(false);
 
         provider.add("rose", 1.50);
 
