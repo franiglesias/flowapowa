@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Deprecated
-public class DeprecatedProvider {
+public class DeprecatedProvider implements Provider {
     private final Map<String, Double> products;
 
     public DeprecatedProvider() {
