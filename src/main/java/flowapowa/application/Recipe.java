@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class Recipe implements Iterable<Recipe.Element> {
+public class Recipe implements Iterable<Element> {
     private final List<Element> elements;
 
     public Recipe() {
@@ -49,6 +49,4 @@ public class Recipe implements Iterable<Recipe.Element> {
         return elements.hashCode();
     }
 
-    public record Element(String value, int quantity) {
-    }
 }

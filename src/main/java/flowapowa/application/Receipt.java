@@ -44,7 +44,7 @@ class Receipt {
         parts.add(new Separator());
     }
 
-    public void add(Bouquet.Product product) {
+    public void add(Product product) {
         product.addToReceipt(this);
     }
 

@@ -12,7 +12,7 @@ public class BouquetBuilder {
     public Bouquet build(Recipe recipe, Integer crafting) {
         Bouquet bouquet = new Bouquet(crafting);
 
-        for (Recipe.Element element :
+        for (Element element :
                 recipe) {
             bouquet.add(element, priceProvider);
         }

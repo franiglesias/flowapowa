@@ -18,7 +18,7 @@ public class Bouquet {
         this.crafting = crafting;
     }
 
-    public void add(Recipe.Element element, Provider priceProvider) {
+    public void add(Element element, Provider priceProvider) {
         double price = priceProvider.getPrice(element.value());
 
         Product product = new Product(element.value(), element.quantity(), price);
@@ -64,24 +64,4 @@ public class Bouquet {
         return amount;
     }
 
-    static class Product {
-        private final String element;
-        private final int quantity;
-        private final double price;
-
-        public Product(String element, int quantity, double price) {
-
-            this.element = element;
-            this.quantity = quantity;
-            this.price = price;
-        }
-
-        public float amount() {
-            return (float) (quantity * price);
-        }
-
-        public void addToReceipt(Receipt receipt) {
-            receipt.addPart(element, quantity, price, amount());
-        }
-    }
 }

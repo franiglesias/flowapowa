@@ -19,7 +19,7 @@ class BuildBouquetShould {
     void buildABouquetFromARecipe() {
         Bouquet expected = new Bouquet(0);
         when(priceProvider.getPrice("rose")).thenReturn(1.5);
-        expected.add(new Recipe.Element("rose", 12), priceProvider);
+        expected.add(new Element("rose", 12), priceProvider);
 
         bouquetBuilder = new BouquetBuilder(priceProvider);
         BuildBouquet buildBouquet = new BuildBouquet(bouquetBuilder);
