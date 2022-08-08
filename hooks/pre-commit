@@ -20,6 +20,10 @@ mvn clean test > /dev/null
 
 if [[ "$?" -ne 0 ]]; then
     echo "KO. Some tests are failing. We want tests passing before commit."
+    echo
+    echo "Revert changes with..."
+    echo
+    echo "                   git reset HEAD~1"
 else
     echo "OK. Congratulations. You can push this commit. TBD for the win!"
 fi
