@@ -2,6 +2,14 @@
 
 This is an exercise to practice **branching by abstraction** and feature flags.
 
+## Install the pre-commit hook
+
+Add this `pre-commit` hook to allow **git** run the tests before sending the commit to master. If the commit breaks the tests it will notify you and will offer to undo the commit.
+
+```bash
+cp hooks/pre-commit .git/hooks/pre-commit
+```
+
 ## The problem
 
 FlowaPowa is an application to create flower bouquets. It depends on a library to get the latest prices for flowers and other elements, like Foliage and Ribbons, from the _Worldwide Flower Market_. Sadly, this library was deprecated, and it will be declared _end of life_ soon.
