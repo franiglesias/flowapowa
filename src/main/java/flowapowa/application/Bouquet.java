@@ -8,8 +8,8 @@ import java.util.List;
 public class Bouquet {
 
     private final Receipt receipt = new Receipt();
-    private Integer crafting;
     private final List<Product> products = new ArrayList<>();
+    private Integer crafting;
 
     public Bouquet() {
     }
@@ -26,7 +26,7 @@ public class Bouquet {
         products.add(product);
     }
 
-    public void add(String productName, Integer quantity, DeprecatedProvider priceProvider ) {
+    public void add(String productName, Integer quantity, DeprecatedProvider priceProvider) {
         double price = priceProvider.getPrice(productName);
 
         Product product = new Product(productName, quantity, price);

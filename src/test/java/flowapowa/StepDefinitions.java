@@ -1,6 +1,8 @@
 package flowapowa;
 
-import flowapowa.application.*;
+import flowapowa.application.BouquetBuilder;
+import flowapowa.application.BuildBouquet;
+import flowapowa.application.ReceiptPrinter;
 import flowapowa.forGettingPrices.DeprecatedProvider;
 import flowapowa.forPrintingReceipts.ConsoleReceiptPrinter;
 import flowapowa.forUsingApplication.FlowaPowaApp;
@@ -55,7 +57,7 @@ public class StepDefinitions {
         recipe = new RawRecipe(qty1, product1) + new RawRecipe(qty2, product2).toString();
     }
 
-    public record RawRecipe (Integer quantity, String product){
+    public record RawRecipe(Integer quantity, String product) {
 
         public String toString() {
             return String.format(Locale.ROOT, "%s:%s;", product, quantity);

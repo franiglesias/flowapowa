@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -16,7 +16,6 @@ class BuildBouquetShould {
     private DeprecatedProvider priceProvider;
 
     @Test
-
     void buildABouquetFromARecipe() {
         Bouquet expected = new Bouquet(0);
         when(priceProvider.getPrice("rose")).thenReturn(1.5);

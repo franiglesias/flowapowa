@@ -34,9 +34,6 @@ public class Recipe implements Iterable<Recipe.Element> {
         return elements.iterator();
     }
 
-    public record Element(String element, int quantity) {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,5 +47,8 @@ public class Recipe implements Iterable<Recipe.Element> {
     @Override
     public int hashCode() {
         return elements.hashCode();
+    }
+
+    public record Element(String element, int quantity) {
     }
 }

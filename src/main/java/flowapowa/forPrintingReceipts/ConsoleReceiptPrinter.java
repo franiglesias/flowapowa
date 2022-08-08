@@ -5,6 +5,7 @@ import flowapowa.application.ReceiptPrinter;
 
 public class ConsoleReceiptPrinter implements ReceiptPrinter {
     String output;
+
     @Override
     public void print(Bouquet bouquet) {
         output = bouquet.receipt();

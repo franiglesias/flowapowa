@@ -50,9 +50,9 @@ class Receipt {
 
     private static class Part implements ReceiptLine {
         protected final String element;
+        protected final float amount;
         private final double price;
         private final int quantity;
-        protected final float amount;
 
         public Part(String element, int quantity, double price, float amount) {
             this.element = element;
@@ -63,7 +63,7 @@ class Receipt {
 
         @Override
         public String toString() {
-            return String.format(Locale.ROOT,"%-8s %5d %6.2f %7.2f\n", element(), quantity, price, amount());
+            return String.format(Locale.ROOT, "%-8s %5d %6.2f %7.2f\n", element(), quantity, price, amount());
         }
 
         private String element() {
@@ -98,7 +98,7 @@ class Receipt {
             if (obj == null || obj.getClass() != this.getClass()) return false;
             var that = (Total) obj;
             return Objects.equals(this.element, that.element) &&
-                    Float.floatToIntBits(this.amount) == Float.floatToIntBits(that.amount);
+                   Float.floatToIntBits(this.amount) == Float.floatToIntBits(that.amount);
         }
 
         @Override
