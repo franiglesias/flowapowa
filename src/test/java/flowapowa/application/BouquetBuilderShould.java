@@ -22,7 +22,7 @@ class BouquetBuilderShould {
         when(priceProvider.getPrice("rose")).thenReturn(1.50);
 
         BouquetBuilder builder = new BouquetBuilder(priceProvider);
-        Bouquet bouquet = builder.withRecipe(recipe, 35);
+        Bouquet bouquet = builder.build(recipe, 35);
 
         String expected = """
                 Rose        12   1.50   18.00

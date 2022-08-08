@@ -9,7 +9,7 @@ public class BouquetBuilder {
         this.priceProvider = priceProvider;
     }
 
-    public Bouquet withRecipe(Recipe recipe, Integer crafting) {
+    public Bouquet build(Recipe recipe, Integer crafting) {
         Bouquet bouquet = new Bouquet(crafting);
 
         for (Recipe.Element element :

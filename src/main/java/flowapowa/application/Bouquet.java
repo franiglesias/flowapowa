@@ -19,9 +19,9 @@ public class Bouquet {
     }
 
     public void add(Recipe.Element element, Provider priceProvider) {
-        double price = priceProvider.getPrice(element.element());
+        double price = priceProvider.getPrice(element.value());
 
-        Product product = new Product(element.element(), element.quantity(), price);
+        Product product = new Product(element.value(), element.quantity(), price);
 
         products.add(product);
     }

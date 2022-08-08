@@ -49,6 +49,6 @@ public class Recipe implements Iterable<Recipe.Element> {
         return elements.hashCode();
     }
 
-    public record Element(String element, int quantity) {
+    public record Element(String value, int quantity) {
     }
 }
