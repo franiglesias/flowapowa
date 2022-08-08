@@ -24,10 +24,4 @@ public class FlowaPowaApp {
         FlowaPowaApp.buildBouquet = buildBouquet;
         FlowaPowaApp.receiptPrinter = receiptPrinter;
     }
-
-    public String makeBouquet(String recipe, Integer crafting) {
-        Bouquet bouquet = buildBouquet.withRecipe(recipe, crafting);
-
-        return bouquet.receipt();
-    }
 }
