@@ -10,6 +10,6 @@ public class BuildBouquet {
     public Bouquet withRecipe(String rawRecipe, Integer crafting) {
         Recipe recipe = new Recipe(rawRecipe);
 
-        return bouquetBuilder.withRecipe(recipe, crafting);
+        return bouquetBuilder.build(recipe, crafting);
     }
 }
