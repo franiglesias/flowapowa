@@ -15,4 +15,12 @@ class NewProductProviderShould {
 
         assertEquals(product, provider.getProductByName("rose"));
     }
+
+    @Test
+    void should_retrieve_price() {
+        NewProductProvider provider = new NewProductProvider();
+        provider.add("rose", 1.50);
+
+        assertEquals(1.50, provider.getPrice("rose"));
+    }
 }
