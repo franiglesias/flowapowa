@@ -5,6 +5,7 @@ import flowapowa.application.BouquetBuilder;
 import flowapowa.application.BuildBouquet;
 import flowapowa.application.ReceiptPrinter;
 import flowapowa.forGettingPrices.DeprecatedProvider;
+import flowapowa.library.ProductProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -20,7 +21,7 @@ class FlowaPowaAppShould {
     ReceiptPrinter receiptPrinter;
 
     @Mock
-    DeprecatedProvider priceProvider;
+    ProductProvider priceProvider;
 
     @Test
     void MakeASimpleBouquetWitUniqueFlowerNoCraftingCosts() {
