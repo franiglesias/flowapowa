@@ -16,7 +16,7 @@ FlowaPowa is an application to create flower bouquets. It depends on a library t
 
 So, we will need to migrate to a new library that will give us access to the same prices, but with a new interface.
 
-The problem is that we need to execute the migration during the most important season of the year. We want to achieve zero downtime to avoid loosing sales.
+The problem is that we need to execute the migration during the most important season of the year. We want to achieve zero downtime to avoid losing sales.
 
 The architecture of the application is pretty decent, but it has some flaws. The deprecated library was used with little care and code is tightly coupled to it. You could find other code smells as well, because original programmer was not so proficient.
 
